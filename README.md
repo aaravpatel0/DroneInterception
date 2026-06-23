@@ -45,7 +45,7 @@ cd C:\Users\aptcs\Downloads\Projects\DroneDetection
 
 I designed the turret CAD in Onshape:
 
-[Open the turret CAD in Onshape](https://cad.onshape.com/documents/1e954f2e6fb0afe0e50c1e47/w/2cc3740a39c70e9d1274ecfc/e/ad41d11dd19aaeac7b789fd0)
+[Open the turret CAD in Onshape](https://cad.onshape.com/documents/1e954f2e6fb0afe0e50c1e47/w/2cc3740a39c70e9d1274ecfc/e/ad41d11dd19aaeac7b789fd0?renderMode=0&uiState=6a3ad88aa638e38f0ba9bea5)
 
 ## Project Layout
 
