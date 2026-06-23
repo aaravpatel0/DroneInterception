@@ -1,0 +1,32 @@
+services:
+  gpu:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: drone-detection-yolov8:latest
+    working_dir: /workspace/drone_detector
+    volumes:
+      - .:/workspace/drone_detector
+    environment:
+      NVIDIA_VISIBLE_DEVICES: all
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility
+      YOLO_CONFIG_DIR: /tmp/Ultralytics
+    gpus: all
+    shm_size: "8gb"
+    stdin_open: true
+    tty: true
+
+  cpu:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: drone-detection-yolov8:latest
+    working_dir: /workspace/drone_detector
+    volumes:
+      - .:/workspace/drone_detector
+    environment:
+      CUDA_VISIBLE_DEVICES: ""
+      YOLO_CONFIG_DIR: /tmp/Ultralytics
+    shm_size: "4gb"
+    stdin_open: true
+    tty: true

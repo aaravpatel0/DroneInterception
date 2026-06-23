@@ -1,0 +1,15 @@
+ultralytics
+opencv-python
+numpy
+pandas
+pyyaml
+tqdm
+pillow
+scikit-learn
+requests
+kaggle
+roboflow
+lxml
+beautifulsoup4
+matplotlib
+imagehash

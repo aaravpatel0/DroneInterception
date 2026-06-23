@@ -1,0 +1,23 @@
+roboflow_raw_dir: data/roboflow_raw
+roboflow_dataset_names:
+  - Drone1
+  - Drone2
+  - Drone3
+  - Drone4
+  - Drone5
+processed_dir: data/processed
+yolo_dir: data/yolo
+image_extensions: [.jpg, .jpeg, .png, .bmp, .webp]
+train_ratio: 0.70
+val_ratio: 0.15
+test_ratio: 0.15
+class_names: ["drone"]
+model_size: yolov8n.pt
+epochs: 50
+imgsz: 640
+batch: 8
+workers: 12
+cache: ram
+confidence_threshold: 0.35
+random_seed: 42
+final_model_name: drone_roboflow_best.pt

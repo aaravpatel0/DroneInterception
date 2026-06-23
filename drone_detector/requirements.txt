@@ -1,0 +1,14 @@
+ultralytics
+opencv-python
+numpy
+pandas
+pyyaml
+tqdm
+scikit-learn
+pillow
+requests
+pyserial
+matplotlib
+notebook
+ipython
+imageio-ffmpeg

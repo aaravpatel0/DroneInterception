@@ -1,0 +1,12 @@
+.venv
+__pycache__
+*.pyc
+runs
+models
+data/raw
+data/yolo
+data/processed
+data/processed/previews
+*.pt
+.git
+.vscode

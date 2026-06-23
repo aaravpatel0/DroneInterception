@@ -1,0 +1,36 @@
+image_size:
+- 640
+- 480
+rms_reprojection_error: 0.39671559033861914
+camera_matrix:
+- - 706.0345304189216
+  - 0.0
+  - 321.96208872490473
+- - 0.0
+  - 705.244877897915
+  - 258.3629704335621
+- - 0.0
+  - 0.0
+  - 1.0
+dist_coeffs:
+- -0.03116264351343566
+- 0.021996506286291875
+- 0.013456299219628445
+- -0.0025089474867857724
+- -0.47725761780701986
+used_images:
+- opencv_calib_001.jpg
+- opencv_calib_002.jpg
+- opencv_calib_003.jpg
+- opencv_calib_004.jpg
+- opencv_calib_005.jpg
+- opencv_calib_006.jpg
+- opencv_calib_007.jpg
+- opencv_calib_008.jpg
+- opencv_calib_009.jpg
+- opencv_calib_010.jpg
+- opencv_calib_011.jpg
+- opencv_calib_012.jpg
+- opencv_calib_013.jpg
+- opencv_calib_014.jpg
+- opencv_calib_015.jpg

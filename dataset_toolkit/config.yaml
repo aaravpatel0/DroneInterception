@@ -1,0 +1,48 @@
+project_name: dataset_toolkit
+class_names:
+  0: drone
+  1: bird
+  2: airplane
+  3: helicopter
+  4: unknown_flying_object
+final_detection_classes:
+  - drone
+  - bird
+  - airplane
+  - helicopter
+merge_similar_drone_labels: true
+drone_label_aliases:
+  - drone
+  - uav
+  - quadcopter
+  - multirotor
+  - aircraft-drone
+  - small-uav
+bird_label_aliases:
+  - bird
+  - birds
+airplane_label_aliases:
+  - airplane
+  - plane
+  - aircraft
+helicopter_label_aliases:
+  - helicopter
+  - heli
+image_extensions:
+  - .jpg
+  - .jpeg
+  - .png
+  - .bmp
+  - .webp
+video_extensions:
+  - .mp4
+  - .avi
+  - .mov
+  - .mkv
+train_ratio: 0.75
+val_ratio: 0.15
+test_ratio: 0.10
+min_box_area_px: 4
+max_duplicate_hamming_distance: 2
+random_seed: 42
+yolo_imgsz: 640

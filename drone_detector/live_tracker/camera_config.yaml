@@ -1,0 +1,36 @@
+source: 0
+baud: 115200
+confidence_threshold: 0.35
+deadband_x: 40
+deadband_y: 60
+kp_pan: 0.03
+kp_tilt: -0.003
+max_pan_step: 30
+tilt_min: 80
+tilt_max: 130
+tilt_start: 90
+y_deadband_inches: 1.0
+model_path: models/production_drone_model.pt
+drone_visible_width_inches: 10.5
+drone_height_inches: 2.5
+focal_length_px: 706.0345304189216
+camera_horizontal_fov_deg: 57.2
+calibration_image_size:
+- 640
+- 480
+camera_matrix:
+- - 706.0345304189216
+  - 0.0
+  - 321.96208872490473
+- - 0.0
+  - 705.244877897915
+  - 258.3629704335621
+- - 0.0
+  - 0.0
+  - 1.0
+dist_coeffs:
+- -0.03116264351343566
+- 0.021996506286291875
+- 0.013456299219628445
+- -0.0025089474867857724
+- -0.47725761780701986

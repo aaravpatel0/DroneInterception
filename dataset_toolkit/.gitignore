@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+kaggle.json
+data/raw/
+data/interim/
+data/yolo_individual/
+data/yolo_merged/
+runs/
+models/
+reports/previews/
+reports/stats/

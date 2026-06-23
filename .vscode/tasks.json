@@ -1,0 +1,43 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Live Tracker Dry Run",
+      "type": "shell",
+      "command": "python",
+      "args": ["live_tracker/turret_tracker.py", "--source", "0", "--dry-run", "--show"],
+      "options": {
+        "cwd": "${workspaceFolder}/drone_detector"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Live Tracker COM3",
+      "type": "shell",
+      "command": "python",
+      "args": ["live_tracker/turret_tracker.py", "--source", "0", "--port", "COM3", "--show"],
+      "options": {
+        "cwd": "${workspaceFolder}/drone_detector"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Docker GPU Training",
+      "type": "shell",
+      "command": ".\\scripts\\docker_train_gpu.ps1",
+      "options": {
+        "cwd": "${workspaceFolder}/drone_detector"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Docker GPU Evaluation",
+      "type": "shell",
+      "command": ".\\scripts\\docker_eval_gpu.ps1",
+      "options": {
+        "cwd": "${workspaceFolder}/drone_detector"
+      },
+      "problemMatcher": []
+    }
+  ]
+}
