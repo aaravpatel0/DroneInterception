@@ -22,6 +22,7 @@ I organized the code, demos, and board files so the project can be presented, re
 
 | Demo | What it shows | Repo file | Drive link |
 | --- | --- | --- | --- |
+| YouTube project demo | Main public demo video for the full project | - | [Watch on YouTube](https://youtu.be/fUEFKIeKq6E?si=KoJLhP0QhyuUc3A9) |
 | Live turret tracking | Physical turret tracking a detected drone | - | [Drone Tracking Turret.mp4](https://drive.google.com/file/d/1UBQOuaAiReNZodWpAV6A1nRXlFVHGqKZ/view?usp=drivesdk) |
 | Detection proof of concept | Drone detected and tracked in camera view | - | [Proof of Concept - Drone Tracked.mp4](https://drive.google.com/file/d/1Y8ixHSbWaxlFa2D4qZv8LF1yn2z77p-x/view?usp=drivesdk) |
 | Fast follow simulation | Simulated drone rapidly following a target | [MP4](assets/demo_simulations/follow_tracking_demo.mp4) / [GIF](assets/demo_simulations/follow_tracking_demo.gif) | [Drive MP4](https://drive.google.com/file/d/1x22EfQROl3rcCMJz3o-rANU-yGck9Fjs/view?usp=drivesdk) / [Drive GIF](https://drive.google.com/file/d/1ceiqXWkpfdoIr6vI1aE4kro-Gwh2Y9jS/view?usp=drivesdk) |

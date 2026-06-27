@@ -61,6 +61,8 @@ I made demo simulations for the tracking behavior so the project could still be 
 
 These demos helped me explain the algorithm visually. They also made the project feel more complete because someone can understand the idea without needing the final hardware in front of them.
 
+Main project demo: [Watch on YouTube](https://youtu.be/fUEFKIeKq6E?si=KoJLhP0QhyuUc3A9)
+
 ## June 23, 2026
 
 I cleaned up the repo, organized the README, added demo links, added the CAD link, added PCB fabrication links, and prepared the project for shipping.
