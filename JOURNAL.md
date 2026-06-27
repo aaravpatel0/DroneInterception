@@ -1,84 +1,80 @@
 # Drone Interceptor Journal
 
-## Project Summary
+This is my build journal for Drone Interceptor. I wanted it to feel like an honest record of the project: what I tried, what worked, what broke, and how the project slowly became real.
 
-Drone Interceptor is the project where I tried to make a computer understand a flying object well enough to follow it with real hardware. It combines a YOLOv8 drone detector, live camera tracking, rough 3D position estimation, prediction, turret firmware, demo simulations, CAD, and custom PCB designs.
+## Images
 
-The idea started small: point a camera at a drone, detect it, and move a turret so the drone stays centered. As I kept building, it turned into a much bigger engineering project. I had to work through computer vision, camera calibration, serial control, stepper motor movement, servo tilt, drone controller signals, IMU and ESP32 experiments, simulations, and PCB layout.
+![SP350 drone-frame PCB preview](Drone%20PCB/preview/sp350_fc_compact.svg)
 
-This is my favorite project because it feels like a real journey instead of a single script. Every stage taught me something different, and the project slowly became more physical, more organized, and more complete.
+![Turret controller PCB preview](Turret%20Control%20PCB/preview/turret_control.svg)
 
-## What I Built
+## June 12, 2026
 
-- A YOLOv8-based drone detection pipeline.
-- A live camera tracker that finds the drone in each frame.
-- A camera-relative 3D position estimate for the tracked drone.
-- A short-term prediction system that draws where the drone appears to be moving.
-- Raspberry Pi Pico 2 firmware for pan/tilt turret control.
-- Stepper motor ramping so the turret can move more smoothly.
-- Servo tilt control for vertical aiming.
-- Demo simulations for follow, orbit, and standoff behavior.
-- A turret controller PCB with a servo power rail and cleaner wiring.
-- A compact drone-frame PCB concept for a small SP350-style frame.
-- Fabrication ZIPs, DRC reports, previews, and project documentation.
+I organized the first version of the repo and started turning the project into something I could actually build on. I set up the dataset and YOLO training workflow, added scripts for cleaning and previewing labels, and started documenting how the detector would be trained.
 
-## Build Story
+This was the software foundation day. The project was still mostly about getting a drone detector working and making sure the code was not just scattered experiments.
 
-At the beginning, the project was mostly about computer vision. I wanted to see if I could train or use a model to detect a small drone from a live camera feed. Once detection worked, the next problem was making the detection useful. A bounding box by itself is cool, but it does not tell the turret what to do. I added camera calibration, estimated distance from the size of the drone in the frame, and converted that into a rough 3D position relative to the camera.
+## Mid-June 2026
 
-After that, I connected the software to hardware. The tracker sends simple commands to a Raspberry Pi Pico 2, and the Pico moves a stepper motor for pan and a servo for tilt. This was one of the first moments where the project felt real, because the code was no longer just drawing boxes on a screen. It was moving something on my desk.
+I worked on the live tracking pipeline. The tracker used a camera feed, found the drone with YOLOv8, and started estimating where the drone was relative to the camera.
 
-The hardest part was the drone-control side. I originally tried to control a commercial drone by electronically injecting joystick-like signals into its controller. That meant measuring voltages, testing resistor and capacitor filters, figuring out how the joystick axes mapped to movement, and debugging why the controller did or did not respond. I got parts of it working, but it was fragile and messy because the original joystick circuitry was still attached to the board.
+This is when the project started feeling less like "detect an object" and more like "understand where the object is." I added camera calibration, rough depth estimation, and the first version of the 3D position output.
 
-That is when the project pivoted. Instead of continuing to fight the commercial controller, I decided to design my own boards while reusing the small Snaptain SP350-style frame, motors, and propellers. That made the project feel cleaner and more intentional. The frame and motors become the mechanical base, while the electronics become something I can understand, document, and improve.
+## Late June 2026
 
-I also made simulations because I wanted people to understand the control ideas even before the final PCBs arrive. The follow, orbit, and safe standoff demos show how the tracking logic behaves in 3D space. They are useful for presentation, but they also helped me think through what the real hardware should eventually do.
+I connected the tracker to physical hardware. The Raspberry Pi Pico 2 controlled the turret, with a stepper motor for pan and a servo for tilt. I tested serial commands, pan movement, tilt movement, and basic tracking behavior.
 
-## What Was Challenging
+This was a big moment because the code was no longer just drawing boxes on a screen. It was moving real hardware.
 
-The hardest challenge was making real hardware match what the code expected. In software, a value can be perfectly centered or perfectly scaled. In hardware, the signal might sag, a joystick board might average two voltage sources together, a motor might stall, or a sensor might not respond until the right register is written.
+## Drone Controller Experiments
 
-Some specific challenges:
+I tried controlling a commercial drone through its controller by sending joystick-like signals from a Pico. I tested the joystick axis mapping, measured voltages, and debugged why some channels responded while others did not.
 
-- Getting stable detection from a live camera feed.
-- Estimating depth from a 2D bounding box.
-- Preventing noisy depth estimates from making the prediction jump.
-- Making the turret move quickly without overshooting or stalling.
-- Understanding how the commercial drone controller interpreted joystick voltages.
-- Debugging voltage drops caused by the original joystick circuit still being attached.
-- Pivoting from a hacked controller to custom PCB designs.
-- Keeping the repo organized enough that someone else can understand the project.
+I learned that the original joystick circuit was still affecting the signals, which made the controller harder to control cleanly. Some tests worked, especially after changing resistor values and checking the voltages, but it was not reliable enough for the final version.
 
-## What I Am Proud Of
+This part was frustrating, but it taught me a lot about real electronics. Software values are clean. Hardware values sag, average together, and behave differently once the actual circuit is connected.
 
-I am proud that this became a complete engineering project, not just a demo. The repo has code, firmware, CAD links, PCB files, Gerbers, demo videos, and documentation. The turret tracking and depth perception system work, and the custom boards are ready for fabrication and testing.
+## ESP32 And IMU Work
 
-I am also proud of the pivot. The commercial-controller approach taught me a lot, but it was not the cleanest final design. Switching to custom PCBs made the project stronger, even though it meant learning more and rethinking the hardware plan.
+I also tested an ESP32-C3 with a BMI160 IMU. The goal was to track the drone-side position and orientation over WiFi and show that data in the 3D visualizer.
 
-The best part is that every subsystem connects to the same idea: a computer sees something in the real world, estimates where it is, predicts where it is going, and moves physical hardware in response.
+I changed the visualizer so the IMU could act as the zero point, with the camera and tracked drone shown relative to it. This helped connect the software map to the physical drone hardware idea.
 
-## Current Status
+## PCB Pivot
 
-- Live drone detection is working.
-- Turret pan/tilt tracking is working.
-- 3D camera-relative position estimation is working.
-- Prediction arrows and logs are working.
-- Demo simulations are exported as videos and GIFs.
-- Turret and drone-frame PCB fabrication files are included.
-- Both PCB DRC reports show zero violations and zero unconnected pads.
-- The next step is waiting for the PCBs, assembling them, and testing the hardware version.
+After enough testing with the hacked drone controller, I decided to pivot. Instead of fighting the commercial controller, I started designing custom PCBs while still reusing the small Snaptain SP350-style frame, motors, and propellers.
 
-## Next Steps
+This made the project feel much cleaner. The drone frame and motors could stay, but the electronics could become something I actually understood and could improve.
 
-- Order or receive the fabricated PCBs.
-- Assemble the turret controller board and verify power rails.
-- Assemble the drone-frame PCB and test motor outputs carefully.
-- Test the full tracker with the new boards.
-- Tune movement gains after seeing real hardware behavior.
-- Record final hardware demo footage once the PCBs are installed.
+I designed:
 
-## Reflection
+- A compact drone-frame PCB.
+- A turret controller PCB.
+- Fabrication ZIPs for both boards.
+- PCB previews and DRC reports.
 
-This project reminded me that building real things is messy in the best way. The path was not straight. I broke things, measured things, changed plans, rewired parts, redesigned boards, and kept turning confusing problems into smaller ones I could solve.
+Both boards currently have DRC reports showing zero violations and zero unconnected pads.
 
-That is why it is my favorite project. It started as an idea on a screen and slowly became something with motors, wires, boards, videos, and a story.
+## Simulation And Presentation
+
+I made demo simulations for the tracking behavior so the project could still be shown clearly while waiting for the PCBs. The simulations show follow, orbit, and safe standoff behavior in 3D space.
+
+These demos helped me explain the algorithm visually. They also made the project feel more complete because someone can understand the idea without needing the final hardware in front of them.
+
+## June 23, 2026
+
+I cleaned up the repo, organized the README, added demo links, added the CAD link, added PCB fabrication links, and prepared the project for shipping.
+
+This was the day the project started feeling presentable instead of just functional. I wanted the repo to show the story and not just the files.
+
+## June 26, 2026
+
+I added this journal and wrote the ship materials. At this point, the software, simulations, firmware, CAD, and PCB files are all in place.
+
+The next big step is physical assembly: waiting for the PCBs, soldering everything, checking power rails, and testing the full hardware version.
+
+## What I Am Most Proud Of
+
+I am most proud that this project became a complete system. It has vision, tracking, prediction, simulations, firmware, CAD, and PCB design all connected to one idea.
+
+It is also my favorite project because the path was not perfect. I had to debug things, change plans, and make decisions when an approach was clearly too fragile. That made the final project feel more real.
