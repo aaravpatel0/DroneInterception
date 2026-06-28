@@ -18,6 +18,16 @@ I organized the code, demos, and board files so the project can be presented, re
 - Custom PCB layouts are ready for fabrication review and ordering.
 - Final hardware milestone: assemble and test the manufactured PCBs.
 
+## Project Photos
+
+![3D printed tracking turret with camera mount](assets/project_photos/drone-turret-front-view.jpeg)
+
+![Live tracker running with camera detection, serial output, and 3D map](assets/project_photos/drone-tracking-system-working.png)
+
+![Bench electronics for the turret controller prototype](assets/project_photos/turret-electronics.jpeg)
+
+![Pico wired into the original drone controller PCB during early control experiments](assets/project_photos/hacking-drone-controller-pcb.jpeg)
+
 ## Demo Links
 
 | Demo | What it shows | Repo file | Drive link |
@@ -29,6 +39,8 @@ I organized the code, demos, and board files so the project can be presented, re
 | Orbit simulation | Simulated drone orbiting around a tracked target | [MP4](assets/demo_simulations/orbit_tracking_demo.mp4) / [GIF](assets/demo_simulations/orbit_tracking_demo.gif) | [Drive MP4](https://drive.google.com/file/d/1vTIU1h2euXmmVWb8Ut7vwJZywcUVn1Vr/view?usp=drivesdk) / [Drive GIF](https://drive.google.com/file/d/1toew0ILT582uKQxMksciPWsyv_LBWJpW/view?usp=drivesdk) |
 | Safe standoff simulation | Simulated controlled follow behavior with spacing | [MP4](assets/demo_simulations/standoff_tracking_demo.mp4) / [GIF](assets/demo_simulations/standoff_tracking_demo.gif) | [Drive MP4](https://drive.google.com/file/d/1BEXhN5-Scd0X3nanZK4e2Cr_hdrNLuV4/view?usp=drivesdk) / [Drive GIF](https://drive.google.com/file/d/1r3fI6IdqFA_aWafnw3gRHlx3CpV9DbdE/view?usp=drivesdk) |
 | Full ship folder | Videos, previews, and supporting project files | - | [Google Drive folder](https://drive.google.com/drive/folders/1Nn7UfG2TgwVNnhRaEpTsOkTEUmSowxKg) |
+
+Simulation screenshot slot: add image here.
 
 The notebook and script used to generate the simulation videos are:
 
@@ -48,13 +60,16 @@ I designed the turret CAD in Onshape:
 
 [Open the turret CAD in Onshape](https://cad.onshape.com/documents/1e954f2e6fb0afe0e50c1e47/w/2cc3740a39c70e9d1274ecfc/e/ad41d11dd19aaeac7b789fd0?renderMode=0&uiState=6a3ad88aa638e38f0ba9bea5)
 
+Turret CAD screenshot slot: add image here.
+
 ## Project Layout
 
 ```text
 DroneDetection/
 |-- README.md
 |-- assets/
-|   `-- demo_simulations/          # Rendered tracking demo MP4s and GIFs
+|   |-- demo_simulations/          # Rendered tracking demo MP4s and GIFs
+|   `-- project_photos/            # Hardware, PCB, and tracker screenshots
 |-- Drone PCB/                     # SP350-frame drone board KiCad files and Gerbers
 |-- Turret Control PCB/            # Turret controller KiCad files and Gerbers
 |-- drone_detector/
@@ -75,6 +90,8 @@ DroneDetection/
 
 ### Tracking Turret
 
+![Turret side view with electronics and test equipment](assets/project_photos/turret-side-view-with-electronics.jpeg)
+
 | Part | Role |
 | --- | --- |
 | USB camera | Live video input for YOLO detection and 3D position estimation |
@@ -89,6 +106,8 @@ DroneDetection/
 ### Drone-Frame Electronics
 
 I started the drone-control work by injecting filtered voltage signals into a commercial drone controller. That proved my computer could affect the drone, but it was fragile and hard to reproduce. I then pivoted to a custom PCB for the small SP350-style frame.
+
+![Opened SP350-style drone frame showing the original board and wiring](assets/project_photos/drone-with-drone-pcb.jpeg)
 
 I designed the drone-frame PCB around:
 
@@ -262,6 +281,10 @@ python evaluate_model.py --device auto
 ## PCB Fabrication Files
 
 Both PCB projects include KiCad files, Gerbers/drill files, previews, and fabrication ZIPs.
+
+![SP350 drone-frame PCB layout](assets/project_photos/drone-pcb.png)
+
+![Turret controller PCB layout](assets/project_photos/turret-pcb.png)
 
 | Board | Local fabrication package | Local preview | Drive links |
 | --- | --- | --- | --- |

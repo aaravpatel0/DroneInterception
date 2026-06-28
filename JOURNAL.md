@@ -20,11 +20,21 @@ I worked on the live tracking pipeline. The tracker used a camera feed, found th
 
 This is when the project started feeling less like "detect an object" and more like "understand where the object is." I added camera calibration, rough depth estimation, and the first version of the 3D position output.
 
+![Live tracker detecting the drone and plotting the 3D position](assets/project_photos/drone-tracking-system-working.png)
+
 ## Late June 2026
 
 I connected the tracker to physical hardware. The Raspberry Pi Pico 2 controlled the turret, with a stepper motor for pan and a servo for tilt. I tested serial commands, pan movement, tilt movement, and basic tracking behavior.
 
 This was a big moment because the code was no longer just drawing boxes on a screen. It was moving real hardware.
+
+![3D printed turret front view](assets/project_photos/drone-turret-front-view.jpeg)
+
+![Turret side view with electronics on the bench](assets/project_photos/turret-side-view-with-electronics.jpeg)
+
+![Breadboarded turret electronics with Pico 2 and stepper driver](assets/project_photos/turret-electronics.jpeg)
+
+Turret CAD screenshot slot: add image here.
 
 ## Drone Controller Experiments
 
@@ -33,6 +43,10 @@ I tried controlling a commercial drone through its controller by sending joystic
 I learned that the original joystick circuit was still affecting the signals, which made the controller harder to control cleanly. Some tests worked, especially after changing resistor values and checking the voltages, but it was not reliable enough for the final version.
 
 This part was frustrating, but it taught me a lot about real electronics. Software values are clean. Hardware values sag, average together, and behave differently once the actual circuit is connected.
+
+![Pico wired into the original drone controller PCB for joystick-signal testing](assets/project_photos/hacking-drone-controller-pcb.jpeg)
+
+![Opened drone frame showing the original drone PCB](assets/project_photos/drone-with-drone-pcb.jpeg)
 
 ## ESP32 And IMU Work
 
@@ -55,11 +69,17 @@ I designed:
 
 Both boards currently have DRC reports showing zero violations and zero unconnected pads.
 
+![Custom SP350 drone-frame PCB layout](assets/project_photos/drone-pcb.png)
+
+![Custom turret controller PCB layout](assets/project_photos/turret-pcb.png)
+
 ## Simulation And Presentation
 
 I made demo simulations for the tracking behavior so the project could still be shown clearly while waiting for the PCBs. The simulations show follow, orbit, and safe standoff behavior in 3D space.
 
 These demos helped me explain the algorithm visually. They also made the project feel more complete because someone can understand the idea without needing the final hardware in front of them.
+
+Simulation screenshot slot: add image here.
 
 Main project demo: [Watch on YouTube](https://youtu.be/fUEFKIeKq6E?si=KoJLhP0QhyuUc3A9)
 
