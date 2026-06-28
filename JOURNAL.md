@@ -34,7 +34,7 @@ This was a big moment because the code was no longer just drawing boxes on a scr
 
 ![Breadboarded turret electronics with Pico 2 and stepper driver](assets/project_photos/turret-electronics.jpeg)
 
-Turret CAD screenshot slot: add image here.
+![Turret CAD model showing the pan platform, camera mount, and tilt servo](assets/project_photos/turret-cad.png)
 
 ## Drone Controller Experiments
 
@@ -79,7 +79,7 @@ I made demo simulations for the tracking behavior so the project could still be 
 
 These demos helped me explain the algorithm visually. They also made the project feel more complete because someone can understand the idea without needing the final hardware in front of them.
 
-Simulation screenshot slot: add image here.
+![Orbit tracking simulation showing controlled drone path and target drone path](assets/demo_simulations/orbit_tracking_screenshot.png)
 
 Main project demo: [Watch on YouTube](https://youtu.be/fUEFKIeKq6E?si=KoJLhP0QhyuUc3A9)
 

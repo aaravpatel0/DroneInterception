@@ -40,7 +40,7 @@ I organized the code, demos, and board files so the project can be presented, re
 | Safe standoff simulation | Simulated controlled follow behavior with spacing | [MP4](assets/demo_simulations/standoff_tracking_demo.mp4) / [GIF](assets/demo_simulations/standoff_tracking_demo.gif) | [Drive MP4](https://drive.google.com/file/d/1BEXhN5-Scd0X3nanZK4e2Cr_hdrNLuV4/view?usp=drivesdk) / [Drive GIF](https://drive.google.com/file/d/1r3fI6IdqFA_aWafnw3gRHlx3CpV9DbdE/view?usp=drivesdk) |
 | Full ship folder | Videos, previews, and supporting project files | - | [Google Drive folder](https://drive.google.com/drive/folders/1Nn7UfG2TgwVNnhRaEpTsOkTEUmSowxKg) |
 
-Simulation screenshot slot: add image here.
+![Orbit tracking simulation showing controlled drone path and target drone path](assets/demo_simulations/orbit_tracking_screenshot.png)
 
 The notebook and script used to generate the simulation videos are:
 
@@ -60,7 +60,7 @@ I designed the turret CAD in Onshape:
 
 [Open the turret CAD in Onshape](https://cad.onshape.com/documents/1e954f2e6fb0afe0e50c1e47/w/2cc3740a39c70e9d1274ecfc/e/ad41d11dd19aaeac7b789fd0?renderMode=0&uiState=6a3ad88aa638e38f0ba9bea5)
 
-Turret CAD screenshot slot: add image here.
+![Turret CAD model showing the pan platform, camera mount, and tilt servo](assets/project_photos/turret-cad.png)
 
 ## Project Layout
 
