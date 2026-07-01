@@ -2,6 +2,8 @@
 
 This is my build journal for Drone Interceptor. I wanted it to feel like an honest record of the project: what I tried, what worked, what broke, and how the project slowly became real.
 
+I also recorded my work on Lapse: [@aarav.patel0436](https://lapse.hackclub.com/user/@aarav.patel0436)
+
 ## Images
 
 ![SP350 drone-frame PCB preview](Drone%20PCB/preview/sp350_fc_compact.svg)
